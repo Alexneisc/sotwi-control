@@ -62,6 +62,8 @@ GEM
       sshkit (~> 1.2)
     capistrano-template (0.0.9)
       capistrano (~> 3.0)
+    capistrano-upload-config (0.7.0)
+      capistrano (>= 3.0)
     capistrano3-puma (3.1.1)
       capistrano (~> 3.7)
       capistrano-bundler
@@ -235,6 +237,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capistrano-template
+  capistrano-upload-config
   capistrano3-puma
   clearance
   kaminari
