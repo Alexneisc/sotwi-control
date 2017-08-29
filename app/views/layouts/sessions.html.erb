@@ -5,13 +5,7 @@
     <meta name="ROBOTS" content="NOODP" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>
-      <% if signed_in? %>
-        <%= [content_for(:title), 'Sotwi'].compact.join(' - ') %>
-      <% else %>
-        Enter
-      <% end %>
-    </title>
+    <title>Enter</title>
 
     <%= csrf_meta_tags %>
 
@@ -20,9 +14,6 @@
   </head>
 
   <body class="<%= current_link_name %>">
-    <%= render 'menu' %>
-
-    <%= render 'flashes' %>
     <%= yield %>
   </body>
 </html>

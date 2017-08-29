@@ -13,6 +13,9 @@ gem 'uglifier', '>= 1.3.0'
 gem 'redis', '~> 3.0'
 gem 'sidekiq'
 gem 'kaminari'
+gem 'clearance'
+gem 'pundit'
+gem 'sass', '~> 3'
 
 group :development, :test do
   gem 'pry'
