@@ -17,6 +17,12 @@ gem 'clearance'
 gem 'pundit'
 gem 'sass', '~> 3'
 
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'datetime_picker_rails'
+gem 'momentjs-rails'
+gem 'normalize-rails'
+
 group :development, :test do
   gem 'pry'
   gem 'rspec'

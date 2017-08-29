@@ -1,27 +1,50 @@
+<%= form_tag(root_path, method: 'get', class: 'filters form') do %>
+  <fieldset>
+    <div class="date">
+      <input
+        type="datetime"
+        name="date"
+        class="datepicker"
+        placeholder="День"
+        value="<%= params[:date] %>"
+        required
+      >
+    </div>
+
+    <div class="submit">
+      <input
+        type="submit"
+        class="submit"
+        value="Submit"
+      >
+    </div>
+  </fieldset>
+<% end %>
+
 <%= paginate @tweets %>
 
-<table class="pure-table pure-table-bordered">
+<table class="table">
   <thead>
   <tr>
-    <th>ID</th>
-    <th>Datetime</th>
-    <th>Replays count</th>
-    <th>Tweeter ID</th>
-    <th>Text hash</th>
+    <th>Replays</th>
     <th>Text</th>
+    <th>Text hash</th>
+    <th>Tweeter ID</th>
+    <th>Datetime</th>
     <th>Created at</th>
+    <th>ID</th>
   </tr>
   </thead>
   <tbody>
   <% @tweets.each do |tweet| %>
     <tr>
-      <td><%= tweet.id %></td>
-      <td><%= tweet.datetime %></td>
       <td><%= tweet.replays_count %></td>
-      <td><%= tweet.tw_id %></td>
-      <td><%= tweet.text_hash %></td>
       <td><%= tweet.text %></td>
-      <td><%= tweet.created_at %></td>
+      <td><%= tweet.text_hash %></td>
+      <td><%= tweet.tw_id %></td>
+      <td><%= tweet.datetime.strftime('%Y.%m.%d %H:%M:%S') %></td>
+      <td><%= tweet.created_at.strftime('%Y.%m.%d %H:%M:%S') %></td>
+      <td><%= tweet.id %></td>
     </tr>
   <% end %>
   </tbody>

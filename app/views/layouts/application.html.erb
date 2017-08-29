@@ -20,9 +20,11 @@
   </head>
 
   <body class="<%= current_link_name %>">
-    <%= render 'menu' %>
+    <div class="app-container">
+      <%= render 'menu' %>
 
-    <%= render 'flashes' %>
-    <%= yield %>
+      <%= render 'flashes' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
