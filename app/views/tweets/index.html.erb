@@ -1,29 +1,32 @@
+<h1 class="title">Tweets (<%= @tweets_count %>)</h1>
+
 <%= form_tag(root_path, method: 'get', class: 'filters form') do %>
-  <fieldset>
-    <div class="date">
+
+  <div class="field is-grouped">
+    <div class="control">
       <input
         type="datetime"
         name="date"
-        class="datepicker"
+        class="datepicker input"
         placeholder="День"
         value="<%= params[:date] %>"
         required
       >
     </div>
 
-    <div class="submit">
+    <div class="control">
       <input
         type="submit"
         class="submit"
         value="Submit"
       >
     </div>
-  </fieldset>
+  </div>
 <% end %>
 
 <%= paginate @tweets %>
 
-<table class="table">
+<table class="table is-bordered is-striped is-narrow">
   <thead>
   <tr>
     <th>Replays</th>
@@ -31,14 +34,14 @@
     <th>Text hash</th>
     <th>Tweeter ID</th>
     <th>Datetime</th>
-    <th>Created at</th>
+    <th>Created</th>
     <th>ID</th>
   </tr>
   </thead>
   <tbody>
   <% @tweets.each do |tweet| %>
     <tr>
-      <td><%= tweet.replays_count %></td>
+      <th><%= tweet.replays_count %></th>
       <td><%= tweet.text %></td>
       <td><%= tweet.text_hash %></td>
       <td><%= tweet.tw_id %></td>
@@ -48,6 +51,17 @@
     </tr>
   <% end %>
   </tbody>
+  <tfoot>
+  <tr>
+    <th>Replays</th>
+    <th>Text</th>
+    <th>Text hash</th>
+    <th>Tweeter ID</th>
+    <th>Datetime</th>
+    <th>Created</th>
+    <th>ID</th>
+  </tr>
+  </tfoot>
 </table>
 
 <%= paginate @tweets %>

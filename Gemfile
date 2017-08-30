@@ -23,6 +23,8 @@ gem 'datetime_picker_rails'
 gem 'momentjs-rails'
 gem 'normalize-rails'
 
+gem 'bulma-rails', '~> 0.5.1'
+
 group :development, :test do
   gem 'pry'
   gem 'rspec'

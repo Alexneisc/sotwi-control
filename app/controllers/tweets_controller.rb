@@ -2,9 +2,11 @@ class TweetsController < ApplicationController
   def index
     params[:date] ||= Time.current.to_date
 
-    @tweets = Tweet.
+    unpaginated_tweets = Tweet.
       for_date(params[:date]).
-      order(replays_count: :desc).
-      page(params[:page])
+      order(replays_count: :desc)
+
+    @tweets_count = unpaginated_tweets.count
+    @tweets = unpaginated_tweets.page(params[:page])
   end
 end

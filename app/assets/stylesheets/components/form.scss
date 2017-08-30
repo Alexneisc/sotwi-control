@@ -1,8 +1,4 @@
-.form {
-  @extend .pure-form;
-}
-
 .submit {
-  @extend .pure-button;
-  @extend .pure-button-primary;
+  @extend .button;
+  @extend .is-success;
 }
