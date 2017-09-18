@@ -1,6 +1,6 @@
 class NewTweet
-  def initialize(tw_id, unformatted_text, user_id, user_name, user_screen_name, datetime)
-    @tw_id = tw_id
+  def initialize(twitter_id, unformatted_text, user_id, user_name, user_screen_name, datetime)
+    @twitter_id = twitter_id
     @unformatted_text = unformatted_text
     @user_id = user_id
     @user_name = user_name
@@ -20,7 +20,7 @@ class NewTweet
       Tweet.find_by(text_hash: text_hash)
     else
       Tweet.create(
-        tw_id: @tw_id,
+        twitter_id: @twitter_id,
         text: text,
         text_hash: text_hash,
         datetime: @datetime,
@@ -29,7 +29,7 @@ class NewTweet
 
     unless Replay.exists?(user_id: @user_id, tweet_id: tweet.id)
       Replay.create(
-        tw_id: @tw_id,
+        twitter_id: @twitter_id,
         user_id: @user_id,
         user_name: @user_name,
         user_screen_name: @user_screen_name,

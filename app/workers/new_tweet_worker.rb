@@ -1,9 +1,9 @@
 class NewTweetWorker
   include Sidekiq::Worker
 
-  def perform(tw_id, unformatted_text, user_id, user_name, user_screen_name, datetime)
+  def perform(twitter_id, unformatted_text, user_id, user_name, user_screen_name, datetime)
     NewTweet.new(
-      tw_id,
+      twitter_id,
       unformatted_text,
       user_id,
       user_name,
