@@ -14,8 +14,9 @@ class NewTweet
 
     text = @unformatted_text.gsub(/^RT @(.+?): /, '').gsub(/#{Tweet::TWITTER_TOPIC}/i, '').strip
     text_hash = Digest::MD5.hexdigest(text)
+    date = Date.parse(@datetime).strftime('%Y-%m-%d')
 
-    tweet = if Tweet.exists?(text_hash: text_hash)
+    tweet = if Tweet.where('datetime::DATE = ?', date).exists?(text_hash: text_hash)
       Tweet.find_by(text_hash: text_hash)
     else
       Tweet.create(
