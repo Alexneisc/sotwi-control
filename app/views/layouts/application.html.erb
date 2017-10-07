@@ -20,9 +20,11 @@
   </head>
 
   <body class="<%= current_link_name %>">
-    <div class="container is-fluid">
+    <% if signed_in? %>
       <%= render 'menu' %>
+    <% end %>
 
+    <div class="container is-fluid">
       <%= render 'flashes' %>
       <%= yield %>
     </div>

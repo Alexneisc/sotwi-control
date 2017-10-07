@@ -24,7 +24,6 @@ gem 'momentjs-rails'
 gem 'normalize-rails'
 gem 'font-awesome-rails'
 
-
 gem 'bulma-rails', '~> 0.5.1'
 
 group :development, :test do

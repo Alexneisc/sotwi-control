@@ -12,3 +12,7 @@
 
 @import "components/**/*";
 @import "user_interface/**/*";
+
+body > .container {
+  padding-top: 20px;
+}
