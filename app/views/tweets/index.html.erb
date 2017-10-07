@@ -45,7 +45,7 @@
       <th><%= tweet.retweets_count %></th>
       <td><%= tweet.text %></td>
       <td><%= tweet.twitter_id %></td>
-      <td><%= tweet.is_retweet %></td>
+      <td><%= icon_boolean(tweet.is_retweet) %></td>
       <td nowrap><%= tweet.datetime.strftime('%Y.%m.%d %H:%M:%S') %></td>
       <td nowrap><%= tweet.twitter_created_at.strftime('%Y.%m.%d %H:%M:%S') %></td>
       <td><%= tweet.user_screen_name %></td>

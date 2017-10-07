@@ -22,6 +22,8 @@ gem 'jquery-ui-rails'
 gem 'datetime_picker_rails'
 gem 'momentjs-rails'
 gem 'normalize-rails'
+gem 'font-awesome-rails'
+
 
 gem 'bulma-rails', '~> 0.5.1'
 
