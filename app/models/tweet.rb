@@ -1,7 +1,7 @@
 class Tweet < ActiveRecord::Base
   TWITTER_TOPIC = '#lol'
 
-  has_many :replays
+  has_many :retweets
 
   scope :for_date, -> (date) {
     return if date.blank?

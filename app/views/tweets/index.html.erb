@@ -29,36 +29,39 @@
 <table class="table is-bordered is-striped is-narrow">
   <thead>
   <tr>
-    <th>Replays</th>
+    <th>Retweets</th>
     <th>Text</th>
-    <th>Text hash</th>
     <th>Tweeter ID</th>
+    <th>Retweet?</th>
     <th>Datetime</th>
-    <th>Created</th>
+    <th>Twitter created</th>
+    <th>User</th>
     <th>ID</th>
   </tr>
   </thead>
   <tbody>
   <% @tweets.each do |tweet| %>
     <tr>
-      <th><%= tweet.replays_count %></th>
+      <th><%= tweet.retweets_count %></th>
       <td><%= tweet.text %></td>
-      <td><%= tweet.text_hash %></td>
       <td><%= tweet.twitter_id %></td>
-      <td><%= tweet.datetime.strftime('%Y.%m.%d %H:%M:%S') %></td>
-      <td><%= tweet.created_at.strftime('%Y.%m.%d %H:%M:%S') %></td>
+      <td><%= tweet.is_retweet %></td>
+      <td nowrap><%= tweet.datetime.strftime('%Y.%m.%d %H:%M:%S') %></td>
+      <td nowrap><%= tweet.twitter_created_at.strftime('%Y.%m.%d %H:%M:%S') %></td>
+      <td><%= tweet.user_screen_name %></td>
       <td><%= tweet.id %></td>
     </tr>
   <% end %>
   </tbody>
   <tfoot>
   <tr>
-    <th>Replays</th>
+    <th>Retweets</th>
     <th>Text</th>
-    <th>Text hash</th>
     <th>Tweeter ID</th>
+    <th>Retweet?</th>
     <th>Datetime</th>
-    <th>Created</th>
+    <th>Twitter created</th>
+    <th>User</th>
     <th>ID</th>
   </tr>
   </tfoot>

@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
 
     unpaginated_tweets = Tweet.
       for_date(params[:date]).
-      order(replays_count: :desc)
+      order(retweets_count: :desc)
 
     @tweets_count = unpaginated_tweets.count
     @tweets = unpaginated_tweets.page(params[:page])
