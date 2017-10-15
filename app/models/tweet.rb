@@ -1,4 +1,4 @@
-class Tweet < ActiveRecord::Base
+class Tweet < ApplicationRecord
   TWITTER_TOPIC = '#lol'
 
   has_many :retweets

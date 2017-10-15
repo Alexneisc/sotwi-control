@@ -1,4 +1,4 @@
-class Retweet < ActiveRecord::Base
+class Retweet < ApplicationRecord
   belongs_to :tweet, counter_cache: true
 
   scope :for_date, -> (date) {

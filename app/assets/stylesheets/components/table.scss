@@ -1,4 +1,9 @@
-//.table{
-  //@extend .pure-table;
-  //@extend .pure-table-bordered;
-//}
+table.table {
+  th {
+    white-space: nowrap;
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+}

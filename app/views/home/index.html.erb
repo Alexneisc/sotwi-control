@@ -80,10 +80,9 @@
       <div>
         <p class="heading">Winner</p>
         <p class="title">
-          <%= link_to(tweets_path(date: params[:date])) do %>
+          <%= link_to(winners_path(date: params[:date])) do %>
             <%= @winner_for_date&.tweet_id || '--//--'.html_safe %>
           <% end %>
-
         </p>
       </div>
     </div>

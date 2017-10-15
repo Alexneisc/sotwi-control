@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :tweets, only: [:index, :show]
+  resources :winners, only: [:index, :show]
 
   # Clearance routes
 
