@@ -10,9 +10,17 @@ class WinnerRetweet
 
     if winner.present?
       tweet = winner.tweet
-      # puts 'Yes!'
-      # puts tweet.id
       TWITTER_CLIENT.retweet(tweet.id)
+    else
+      if TELEGRAM_ON
+        text = "Problem in WinnerRetweet 😞\n"
+        text += "Don't have winner!\n"
+        text += "win_date: #{date}\n"
+        text += "Server time: #{Time.current}"
+        TELEGRAM_BOT.api.send_message(chat_id: TELEGRAM_CHAT_ID, text: text)
+      end
+
+      raise Exception.new("Don't have winner!")
     end
   end
 
