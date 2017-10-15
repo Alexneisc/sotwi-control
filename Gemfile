@@ -16,6 +16,9 @@ gem 'kaminari'
 gem 'clearance'
 gem 'pundit'
 gem 'sass', '~> 3'
+gem 'telegram-bot-ruby', '~> 0.8'
+# gem 'whenever'
+gem 'twitter', '~> 6.1.0'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -23,7 +26,6 @@ gem 'datetime_picker_rails'
 gem 'momentjs-rails'
 gem 'normalize-rails'
 gem 'font-awesome-rails'
-
 gem 'bulma-rails', '~> 0.5.1'
 
 group :development, :test do
