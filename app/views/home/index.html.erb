@@ -26,7 +26,11 @@
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Winner yesterday</p>
-      <p class="title"><%= @winner_yesterday&.id || '--//--'.html_safe %></p>
+      <p class="title">
+        <%= link_to(winners_path(date: params[:date])) do %>
+          <%= @winner_yesterday&.tweet_id || '--//--'.html_safe %>
+        <% end %>
+      </p>
     </div>
   </div>
 </nav>
