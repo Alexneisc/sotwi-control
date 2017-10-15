@@ -1,0 +1,15 @@
+.home-index {
+  .filters {
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    .field-label {
+      flex-basis: initial;
+      flex-grow: initial;
+    }
+
+    .date {
+      position: relative;
+    }
+  }
+}

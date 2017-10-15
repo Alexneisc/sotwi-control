@@ -1,0 +1,92 @@
+<nav class="level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Tweets today</p>
+      <p class="title"><%= @tweets_today %></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Retweets today</p>
+      <p class="title"><%= @retweets_today %></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Tweets yesterday</p>
+      <p class="title"><%= @tweets_yesterday %></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Retweets yesterday</p>
+      <p class="title"><%= @retweets_yesterday %></p>
+    </div>
+  </div>
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="heading">Winner yesterday</p>
+      <p class="title"><%= @winner_yesterday&.id || '--//--'.html_safe %></p>
+    </div>
+  </div>
+</nav>
+<hr>
+
+<%= form_tag(root_path, method: 'get', class: 'filters form') do %>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">For date</label>
+    </div>
+    <div class="field-body">
+      <div class="field is-grouped">
+        <div class="control">
+          <input
+            type="datetime"
+            name="date"
+            class="datepicker input"
+            placeholder="Day"
+            value="<%= params[:date] %>"
+            required
+          >
+        </div>
+
+        <div class="control">
+          <input
+            type="submit"
+            class="submit"
+            value="Submit"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if params[:date].present? %>
+  <nav class="level">
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Tweets</p>
+        <p class="title"><%= @tweets_for_date || '&nbsp;'.html_safe %></p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Retweets</p>
+        <p class="title"><%= @tweets_for_date || '&nbsp;'.html_safe %></p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+        <p class="heading">Winner</p>
+        <p class="title">
+          <%= link_to(tweets_path(date: params[:date])) do %>
+            <%= @winner_for_date&.tweet_id || '--//--'.html_safe %>
+          <% end %>
+
+        </p>
+      </div>
+    </div>
+  </nav>
+<% end %>
+<hr>

@@ -1,4 +1,4 @@
-<h1 class="title">Tweets (<%= @tweets_count %>)</h1>
+<h1 class="title">Tweet (<%= @retweets_count %> <small>retweets</small>)</h1>
 
 <%= form_tag(tweets_path, method: 'get', class: 'filters form') do %>
 
@@ -24,54 +24,40 @@
   </div>
 <% end %>
 
-<%= paginate @tweets %>
+<%= paginate @retweets %>
 
 <table class="table is-bordered is-striped is-narrow">
   <thead>
   <tr>
-    <th>Retweets</th>
-    <th>Text</th>
     <th>Tweeter ID</th>
-    <th>Retweet?</th>
+    <th>User</th>
     <th>Collected</th>
     <th>Twitter created</th>
-    <th>User</th>
-    <th>ID</th>
   </tr>
   </thead>
   <tbody>
-  <% @tweets.each do |tweet| %>
+  <% @retweets.each do |tweet| %>
     <tr>
-      <td>
-        <%= link_to(tweet.retweets_count, tweet_path(tweet.id, date: params[:date])) %>
-      </td>
-      <td><%= tweet.text %></td>
       <td nowrap="">
         <%= tweet.twitter_id %>
         <a href="http://twitter.com/statuses/<%= tweet.twitter_id %>" target="_blank">
           <i class="fa fa-external-link" aria-hidden="true"></i>
         </a>
       </td>
-      <td><%= icon_boolean(tweet.is_retweet) %></td>
-      <td nowrap><%= tweet.collected_at.strftime('%Y.%m.%d %H:%M:%S') %></td>
-      <td nowrap><%= tweet.twitter_created_at.strftime('%Y.%m.%d %H:%M:%S') %></td>
       <td><%= tweet.user_screen_name %></td>
-      <td><%= tweet.id %></td>
+      <td nowrap><%= tweet.collected_at.strftime('%Y.%m.%d %H:%M:%S') %></td>
+      <td nowrap><%= tweet&.twitter_created_at&.strftime('%Y.%m.%d %H:%M:%S') %></td>
     </tr>
   <% end %>
   </tbody>
   <tfoot>
   <tr>
-    <th>Retweets</th>
-    <th>Text</th>
     <th>Tweeter ID</th>
-    <th>Retweet?</th>
+    <th>User</th>
     <th>Collected</th>
     <th>Twitter created</th>
-    <th>User</th>
-    <th>ID</th>
   </tr>
   </tfoot>
 </table>
 
-<%= paginate @tweets %>
+<%= paginate @retweets %>

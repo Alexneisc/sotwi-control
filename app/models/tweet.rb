@@ -6,6 +6,6 @@ class Tweet < ActiveRecord::Base
 
   scope :for_date, -> (date) {
     return if date.blank?
-    where('datetime::date = ?', date)
+    where('collected_at::date = ?', date)
   }
 end
