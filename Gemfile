@@ -17,7 +17,7 @@ gem 'clearance'
 gem 'pundit'
 gem 'sass', '~> 3'
 gem 'telegram-bot-ruby', '~> 0.8'
-# gem 'whenever'
+gem 'whenever', '~> 0.9.7'
 gem 'twitter', '~> 6.1.0'
 
 gem 'jquery-rails'
