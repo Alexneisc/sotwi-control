@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     @tweets_today = Tweet.for_date(Time.current.to_date).count
     @retweets_today = Tweet.for_date(Time.current.to_date).sum(:retweets_count)
     @tweets_yesterday = Tweet.for_date(Date.yesterday).count
+    #TODO Почему-то @retweets_yesterday обновляется прям на глазах. Т.е. туда попадают сегодняшние ретвиты
     @retweets_yesterday = Tweet.for_date(Date.yesterday).sum(:retweets_count)
     @winner_yesterday = Winner.find_by(date: Date.yesterday)
 
