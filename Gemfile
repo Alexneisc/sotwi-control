@@ -26,7 +26,7 @@ gem 'datetime_picker_rails'
 gem 'momentjs-rails'
 gem 'normalize-rails'
 gem 'font-awesome-rails'
-gem 'bulma-rails', '~> 0.5.1'
+gem 'bulma-rails', '~> 0.6'
 
 group :development, :test do
   gem 'pry'
