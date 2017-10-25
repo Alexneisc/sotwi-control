@@ -20,3 +20,5 @@
 
 config/database.yml
 config/secrets.yml
+config/initializers/twitter.rb
+config/initializers/telegram.rb
