@@ -1,9 +1,9 @@
 namespace :winner do
   task determination: :environment do
-    WinnerDetermination.new(date = '07-10-2017').call
+    WinnerDetermination.new.call
   end
 
   task retweet: :environment do
-    WinnerRetweet.new(date = '07-10-2017').call
+    WinnerRetweet.new.call
   end
 end
