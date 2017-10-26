@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every :day, :at => '00:00am', :roles => [:app] do
+every :day, :at => '00:03am', :roles => [:app] do
   rake 'winner:determination winner:retweet'
 end
