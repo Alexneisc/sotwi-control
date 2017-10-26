@@ -10,7 +10,7 @@ class NewTweet
 
     if @tweet_data['is_retweet']
       tweet = if Tweet.where('collected_at::DATE = ?', date).exists?(twitter_id: @retweet_data['id'])
-        Tweet.find_by(twitter_id: @retweet_data['id'])
+        Tweet.where('collected_at::DATE = ?', date).find_by(twitter_id: @retweet_data['id'])
       else
         create_tweet(
           @collected_at,
