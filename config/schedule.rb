@@ -22,3 +22,7 @@
 every :day, :at => '00:03am', :roles => [:app] do
   rake 'winner:determination winner:retweet'
 end
+
+every :day, :at => '00:15am', :roles => [:app] do
+  rake 'clean_old:tweets clean_old:retweets'
+end
