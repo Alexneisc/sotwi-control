@@ -10,7 +10,7 @@ class WinnerRetweet
 
     if winner.present?
       tweet = winner.tweet
-      TWITTER_CLIENT.retweet(tweet.id)
+      TWITTER_CLIENT.retweet(tweet.twitter_id)
     else
       if TELEGRAM_ON
         text = "Problem in WinnerRetweet 😞\n"
