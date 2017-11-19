@@ -29,6 +29,7 @@ gem 'font-awesome-rails'
 gem 'bulma-rails', '~> 0.6'
 
 gem 'bugsnag'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'pry'

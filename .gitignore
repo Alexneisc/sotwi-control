@@ -23,3 +23,4 @@ config/secrets.yml
 config/initializers/twitter.rb
 config/initializers/telegram.rb
 config/initializers/bugsnag.rb
+config/newrelic.yml

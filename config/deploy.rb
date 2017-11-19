@@ -6,8 +6,26 @@ set :user, 'deploy'
 set :repo_url, 'git@bitbucket.org:alexneisc/sotwi-control.git'
 set :rvm_ruby_version, '2.4.1@sotwi-control'
 
-append :linked_files, 'config/secrets.yml', 'config/database.yml', 'puma.rb', 'config/initializers/twitter.rb', 'config/initializers/telegram.rb', 'config/initializers/bugsnag.rb'
-append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/assets'
+append(
+  :linked_files,
+  'config/secrets.yml',
+  'config/database.yml',
+  'config/newrelic.yml',
+  'puma.rb',
+  'config/initializers/twitter.rb',
+  'config/initializers/telegram.rb',
+  'config/initializers/bugsnag.rb'
+)
+
+append(
+  :linked_dirs,
+  'log',
+  'tmp/pids',
+  'tmp/cache',
+  'tmp/sockets',
+  'public/system',
+  'public/assets'
+)
 
 set :pty,             true
 set :use_sudo,        false
@@ -89,3 +107,4 @@ end
 after 'deploy:starting', 'sidekiq:quiet'
 after 'deploy:reverted', 'sidekiq:restart'
 after 'deploy:published', 'sidekiq:restart'
+after 'deploy:updated', 'newrelic:notice_deployment'
