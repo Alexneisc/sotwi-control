@@ -6,7 +6,7 @@ set :user, 'deploy'
 set :repo_url, 'git@bitbucket.org:alexneisc/sotwi-control.git'
 set :rvm_ruby_version, '2.4.1@sotwi-control'
 
-append :linked_files, 'config/secrets.yml', 'config/database.yml', 'puma.rb', 'config/initializers/twitter.rb', 'config/initializers/telegram.rb'
+append :linked_files, 'config/secrets.yml', 'config/database.yml', 'puma.rb', 'config/initializers/twitter.rb', 'config/initializers/telegram.rb', 'config/initializers/bugsnag.rb'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/assets'
 
 set :pty,             true
