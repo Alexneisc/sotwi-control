@@ -30,7 +30,6 @@
   <thead>
   <tr>
     <th>Win date</th>
-    <th>Win determined</th>
     <th>Retweets</th>
     <th>Text</th>
     <th>Tweeter ID</th>
@@ -39,13 +38,13 @@
     <th>Twitter created</th>
     <th>User</th>
     <th>ID</th>
+    <th>Bot retweeted</th>
   </tr>
   </thead>
   <tbody>
   <% @winners.each do |winner| %>
     <tr>
       <td class="nowrap"><b><%= winner.date %></b></td>
-      <td><%= winner.created_at.strftime('%Y.%m.%d %H:%M:%S') %></td>
       <td>
         <%= link_to(winner.tweet.retweets_count, tweet_path(winner.tweet.id, date: params[:date])) %>
       </td>
@@ -61,13 +60,13 @@
       <td nowrap><%= winner.tweet.twitter_created_at.strftime('%Y.%m.%d %H:%M:%S') %></td>
       <td><%= winner.tweet.user_screen_name %></td>
       <td><%= winner.tweet.id %></td>
+      <td><%= icon_boolean(winner.retweeted_by_bot) %></td>
     </tr>
   <% end %>
   </tbody>
   <tfoot>
   <tr>
     <th>Win date</th>
-    <th>Win determined</th>
     <th>Retweets</th>
     <th>Text</th>
     <th>Tweeter ID</th>
@@ -76,6 +75,7 @@
     <th>Twitter created</th>
     <th>User</th>
     <th>ID</th>
+    <th>Bot retweeted</th>
   </tr>
   </tfoot>
 </table>
