@@ -28,6 +28,8 @@ gem 'normalize-rails'
 gem 'font-awesome-rails'
 gem 'bulma-rails', '~> 0.6'
 
+gem 'bugsnag'
+
 group :development, :test do
   gem 'pry'
   gem 'rspec'
