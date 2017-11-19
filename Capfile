@@ -23,7 +23,6 @@ require 'capistrano/puma'
 require 'capistrano/upload-config'
 require 'capistrano/capistrano_plugin_template'
 require 'whenever/capistrano'
-require 'bugsnag-capistrano'
 
 install_plugin Capistrano::Puma
 install_plugin Capistrano::Puma::Workers
