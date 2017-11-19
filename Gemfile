@@ -52,4 +52,5 @@ group :development do
   gem 'capistrano-upload-config'
   gem 'activerecord_sane_schema_dumper'
   gem 'capistrano-template', require: false
+  gem 'bugsnag-capistrano', require: false
 end

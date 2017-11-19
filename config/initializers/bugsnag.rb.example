@@ -1,3 +1,5 @@
 Bugsnag.configure do |config|
   config.api_key = "api_key"
 end
+
+BUGSNAG_API_KEY = 'api_key'
