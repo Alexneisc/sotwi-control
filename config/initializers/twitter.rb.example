@@ -4,3 +4,5 @@ TWITTER_CLIENT = Twitter::REST::Client.new do |config|
   config.access_token        = "access_token"
   config.access_token_secret = "access_token_secret"
 end
+
+TWITTER_BOT = ['sotwi_doe']

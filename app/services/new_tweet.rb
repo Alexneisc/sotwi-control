@@ -8,6 +8,8 @@ class NewTweet
   def processing
     date = Date.parse(@collected_at).strftime('%Y-%m-%d')
 
+    return if TWITTER_BOT.include? @tweet_data['user_screen_name']
+
     if @tweet_data['is_retweet']
       tweet = if Tweet.where('collected_at::DATE = ?', date).exists?(twitter_id: @retweet_data['id'])
         Tweet.where('collected_at::DATE = ?', date).find_by(twitter_id: @retweet_data['id'])
@@ -34,6 +36,8 @@ class NewTweet
       end
     end
   end
+
+  private
 
   def create_tweet(collected_at, data={})
     Tweet.create(
