@@ -11,6 +11,7 @@ class WinnerRetweet
     if winner.present?
       tweet = winner.tweet
       TWITTER_CLIENT.retweet(tweet.twitter_id)
+      winner.update(retweeted_by_bot: true)
     else
       if TELEGRAM_ON
         text = "Problem in WinnerRetweet 😞\n"
