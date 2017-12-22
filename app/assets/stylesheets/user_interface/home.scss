@@ -12,4 +12,17 @@
       position: relative;
     }
   }
+
+  .fresh_stats, .stats_for_date {
+    @extend .table;
+    @extend .is-fullwidth;
+
+    th span {
+      @extend .heading;
+    }
+
+    td span {
+      @extend .subtitle;
+    }
+  }
 }

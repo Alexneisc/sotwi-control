@@ -6,12 +6,14 @@ class WinnerRetweet
   def call
     date = win_date(@date)
 
-    winner = Winner.find_by(date: date)
+    winners = Winner.where(date: date)
 
-    if winner.present?
-      tweet = winner.tweet
-      TWITTER_CLIENT.retweet(tweet.twitter_id)
-      winner.update(retweeted_by_bot: true)
+    if winners.present?
+      winners.each do |winner|
+        tweet = winner.tweet
+        TWITTER_CLIENT.retweet(tweet.twitter_id)
+        winner.update(retweeted_by_bot: true)
+      end
     else
       if TELEGRAM_ON
         text = "Problem in WinnerRetweet 😞\n"

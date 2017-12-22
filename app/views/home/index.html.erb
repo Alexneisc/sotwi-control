@@ -2,38 +2,61 @@
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Tweets today</p>
-      <p class="title"><%= @tweets_today %></p>
+      <p class="title"><%= @total_stats[:today][:tweets] %></p>
     </div>
   </div>
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Retweets today</p>
-      <p class="title"><%= @retweets_today %></p>
+      <p class="title"><%= @total_stats[:today][:retweets] %></p>
     </div>
   </div>
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Tweets yesterday</p>
-      <p class="title"><%= @tweets_yesterday %></p>
+      <p class="title"><%= @total_stats[:yesterday][:tweets] %></p>
     </div>
   </div>
   <div class="level-item has-text-centered">
     <div>
       <p class="heading">Retweets yesterday</p>
-      <p class="title"><%= @retweets_yesterday %></p>
-    </div>
-  </div>
-  <div class="level-item has-text-centered">
-    <div>
-      <p class="heading">Winner yesterday</p>
-      <p class="title">
-        <%= link_to(winners_path(date: params[:date])) do %>
-          <%= @winner_yesterday&.tweet_id || '--//--'.html_safe %>
-        <% end %>
-      </p>
+      <p class="title"><%= @total_stats[:yesterday][:retweets] %></p>
     </div>
   </div>
 </nav>
+
+<hr>
+<br>
+
+<% if @fresh_stats.present? %>
+  <table class="fresh_stats table is-fullwidth">
+    <thead>
+      <th><span>Date</span></th>
+      <th><span>Tag</span></th>
+      <th><span>Tweets</span></th>
+      <th><span>Retweets</span></th>
+      <th><span>Winner id</span></th>
+    </thead>
+    <tbody>
+    <% @fresh_stats.each do |stat| %>
+      <tr>
+        <td><span><%= stat.date.strftime("%d/%m") %></span></td>
+        <td><span><%= stat.tag %></span></td>
+        <td><span><%= stat.total %></span></td>
+        <td><span><%= stat.total_retweets %></span></td>
+        <td>
+          <span>
+            <%= link_to(winners_path(date: stat.date)) do %>
+              <%= stat&.winner_id|| '--//--'.html_safe %>
+            <% end %>
+          </span>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+
 <hr>
 
 <%= form_tag(root_path, method: 'get', class: 'filters form') do %>
@@ -67,29 +90,32 @@
 <% end %>
 
 <% if params[:date].present? %>
-  <nav class="level">
-    <div class="level-item has-text-centered">
-      <div>
-        <p class="heading">Tweets</p>
-        <p class="title"><%= @tweets_for_date || '&nbsp;'.html_safe %></p>
-      </div>
-    </div>
-    <div class="level-item has-text-centered">
-      <div>
-        <p class="heading">Retweets</p>
-        <p class="title"><%= @tweets_for_date || '&nbsp;'.html_safe %></p>
-      </div>
-    </div>
-    <div class="level-item has-text-centered">
-      <div>
-        <p class="heading">Winner</p>
-        <p class="title">
-          <%= link_to(winners_path(date: params[:date])) do %>
-            <%= @winner_for_date&.tweet_id || '--//--'.html_safe %>
-          <% end %>
-        </p>
-      </div>
-    </div>
-  </nav>
+  <% if @stats_for_date.present? %>
+    <table class="stats_for_date table is-fullwidth">
+      <thead>
+        <th><span>Tag</span></th>
+        <th><span>Tweets</span></th>
+        <th><span>Retweets</span></th>
+        <th><span>Winner id</span></th>
+      </thead>
+      <tbody>
+      <% @stats_for_date.each do |stat| %>
+        <tr>
+          <td><span><%= stat.tag %></span></td>
+          <td><span><%= stat.total %></span></td>
+          <td><span><%= stat.total_retweets %></span></td>
+          <td>
+          <span>
+            <%= link_to(winners_path(date: stat.date)) do %>
+              <%= stat&.winner_id|| '--//--'.html_safe %>
+            <% end %>
+          </span>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p class="title is-2">No data</p>
+  <% end %>
 <% end %>
-<hr>
