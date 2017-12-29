@@ -15,15 +15,16 @@
     </div>
 
     <div class="control">
-      <input
-        type="submit"
-        class="submit"
-        value="Submit"
-      >
+      <input type="submit" class="submit" value="Submit">
     </div>
   </div>
 <% end %>
 
+<div class="horizontal_info">
+  <% Tweet.column_names.each do |field_name| %>
+    <%= render 'shared/horizontal_info', label: field_name, value: @tweet.send(field_name) %>
+  <% end %>
+</div>
 <%= paginate @retweets %>
 
 <table class="table is-bordered is-striped is-narrow">
