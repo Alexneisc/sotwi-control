@@ -4,7 +4,7 @@ lock "3.9.0"
 set :application, 'sotwi-control'
 set :user, 'deploy'
 set :repo_url, 'git@bitbucket.org:alexneisc/sotwi-control.git'
-set :rvm_ruby_version, '2.4.1@sotwi-control'
+set :rvm_ruby_version, '2.4.3@sotwi-control'
 
 append(
   :linked_files,
