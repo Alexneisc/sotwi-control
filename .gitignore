@@ -25,3 +25,4 @@ config/initializers/telegram.rb
 config/initializers/bugsnag.rb
 config/newrelic.yml
 config/deploy/production.rb
+config/deploy/knock.rb
